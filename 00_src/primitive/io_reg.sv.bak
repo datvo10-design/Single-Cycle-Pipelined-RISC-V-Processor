@@ -1,0 +1,30 @@
+module io_reg (
+  input logic         i_clk,
+  input logic         i_reset,
+  input logic         i_access_en,
+  input logic [31:0]  i_wdata,
+  input logic [3:0]   i_bmask,
+  input logic         i_wren,
+  output logic [31:0] o_data,
+  output logic [31:0] o_io
+);
+  logic [31:0] io_reg;
+  //// write ////
+  always_ff @( posedge i_clk or negedge i_reset ) begin 
+    if ( ~i_reset ) begin 
+      io_reg <= 32'd0;
+    end else begin 
+      if ( i_wren & i_access_en & i_bmask [0] ) io_reg [7:0]   <= i_wdata [7:0];
+      if ( i_wren & i_access_en & i_bmask [1] ) io_reg [15:8]  <= i_wdata [15:8]; 
+      if ( i_wren & i_access_en & i_bmask [2] ) io_reg [23:16] <= i_wdata [24:16];
+      if ( i_wren & i_access_en & i_bmask [3] ) io_reg [31:24] <= i_wdata [31:24];
+      o_data [7:0]   <= i_bmask [0] & ( ~i_wren ) & i_access_en ? io_reg [7:0]   : 8'b0;
+      o_data [15:8]  <= i_bmask [1] & ( ~i_wren ) & i_access_en ? io_reg [15:8]  : 8'b0;
+      o_data [23:16] <= i_bmask [2] & ( ~i_wren ) & i_access_en ? io_reg [23:16] : 8'b0;
+      o_data [31:24] <= i_bmask [3] & ( ~i_wren ) & i_access_en ? io_reg [31:24] : 8'b0;
+    end
+  end
+//// read ////
+  assign   o_io           = io_reg;
+endmodule : io_reg
+

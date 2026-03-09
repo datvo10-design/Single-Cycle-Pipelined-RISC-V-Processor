@@ -1,0 +1,158 @@
+xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s005: Started on Dec 12, 2025 at 04:21:23 +07
+xrun
+	-access +rwc
+	-f ./flist.f
+		-sv
+		-timescale 1ns/100ps
+		./../00_src/primitive/sub_32bit.sv
+		./../00_src/primitive/full_adder.sv
+		./../00_src/primitive/io_reg.sv
+		./../00_src/primitive/mux_32_to_1.sv
+		./../00_src/primitive/add_32bit.sv
+		./../00_src/pipeline_regis/EX_MEM_alu_reg.sv
+		./../00_src/pipeline_regis/EX_MEM_inst_reg.sv
+		./../00_src/pipeline_regis/EX_MEM_pc_reg.sv
+		./../00_src/pipeline_regis/EX_MEM_rs2_reg.sv
+		./../00_src/pipeline_regis/ID_EX_imm_reg.sv
+		./../00_src/pipeline_regis/ID_EX_inst_reg.sv
+		./../00_src/pipeline_regis/ID_EX_pc_reg.sv
+		./../00_src/pipeline_regis/ID_EX_rs1_reg.sv
+		./../00_src/pipeline_regis/ID_EX_rs2_reg.sv
+		./../00_src/pipeline_regis/IF_ID_instr_reg.sv
+		./../00_src/pipeline_regis/IF_ID_pc_reg.sv
+		./../00_src/pipeline_regis/MEM_WB_alu_reg.sv
+		./../00_src/pipeline_regis/MEM_WB_inst_reg.sv
+		./../00_src/pipeline_regis/MEM_WB_mem_reg.sv
+		./../00_src/pipeline_regis/MEM_WB_pc4_reg.sv
+		./../00_src/pipeline_regis/MEM_WB_pc_reg.sv
+		./../00_src/pipeline_regis/pipe_control_2_bit_reg.sv
+		./../00_src/pipeline_regis/pipeline_control_1bit_reg.sv
+		./../00_src/pipeline_regis/pipe_control_4_bit_regis.sv
+		./../00_src/primitive/and_32bit.sv
+		./../00_src/primitive/Byte_left_shifter_32bit.sv
+		./../00_src/primitive/Byte_right_shifter_32bit.sv
+		./../00_src/primitive/or_32bit.sv
+		./../00_src/primitive/sll_32bit.sv
+		./../00_src/primitive/slt_32bit.sv
+		./../00_src/primitive/sltu_32bit.sv
+		./../00_src/primitive/sra_32bit.sv
+		./../00_src/primitive/srl_32bit.sv
+		./../00_src/primitive/sw_io.sv
+		./../00_src/primitive/xor_32bit.sv
+		./../00_src/core/alu.sv
+		./../00_src/core/brc_32bit.sv
+		./../00_src/core/ControlUnit.sv
+		./../00_src/core/dmem.sv
+		./../00_src/core/hazard_detection_unit.sv
+		./../00_src/core/forwarding_ctr_unit.sv
+		./../00_src/core/branch_ctr_unit.sv
+		./../00_src/core/stack_ra_unit.sv
+		./../00_src/core/BTB.sv
+		./../00_src/core/imem.sv
+		./../00_src/core/immGen.sv
+		./../00_src/core/lsu.sv
+		./../00_src/core/PC_reg.sv
+		./../00_src/core/regfile.sv
+		./../00_src/core/pipelined.sv
+		./../01_bench/driver.sv
+		./../01_bench/scoreboard.sv
+		./../01_bench/tbench.sv
+		./../01_bench/tlib.svh
+Recompiling... reason: file '../00_src/core/branch_ctr_unit.sv' is newer than expected.
+	expected: Fri Dec 12 02:22:38 2025
+	actual:   Fri Dec 12 04:21:19 2025
+file: ./../00_src/core/branch_ctr_unit.sv
+	module worklib.branch_ctr_unit:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x6d50d8ec
+		EX_MEM_rs2_reg
+		MEM_WB_pc4_reg
+		pipe_control_2_bit_reg
+		tbench
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.branch_ctr_unit:sv <0x500bfa40>
+			streams:   5, words:  5619
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                 567      61
+		Registers:             1,458     422
+		Scalar wires:          3,875       -
+		Expanded wires:          384      12
+		Vectored wires:          326       -
+		Always blocks:           202      73
+		Initial blocks:            7       7
+		Cont. assignments:       489      96
+		Pseudo assignments:    1,372       -
+		Compilation units:         1       1
+		Process Clocks:           70       7
+		Simulation timescale:  100ps
+	Writing initial simulation snapshot: worklib.EX_MEM_rs2_reg:sv
+Loading snapshot worklib.EX_MEM_rs2_reg:sv .................... Done
+xcelium> source /home/yellow/ee3201_26/tools/eda/cadence/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> run
+
+PIPELINE - ISA tests
+
+add......PASS
+addi.....PASS
+sub......PASS
+and......PASS
+andi.....PASS
+or.......PASS
+ori......PASS
+xor......PASS
+xori.....PASS
+slt......PASS
+slti.....PASS
+sltu.....PASS
+sltiu....PASS
+sll......PASS
+slli.....PASS
+srl......PASS
+srli.....PASS
+sra......PASS
+srai.....PASS
+lw.......PASS
+lh.......PASS
+lhu......PASS
+lb.......PASS
+lbu......PASS
+sw.......PASS
+sh.......PASS
+sb.......PASS
+auipc....PASS
+lui......PASS
+beq......PASS
+bne......PASS
+blt......PASS
+bltu.....PASS
+bge......PASS
+bgeu.....PASS
+jal......PASS
+jalr.....PASS
+malgn....PASS
+iosw.....PASS
+
+=================== Result ===================
+Total Clock Cycles Executed = 5510
+Total Instructions Executed = 4825
+Total Branch Instructions   = 1602
+Total Branch Mispredictions = 493
+
+----------------------------------------------
+Instruction Per Cycle (IPC) = 0.88
+Branch Misprediction Rate   = 30.77 %
+
+END of ISA tests
+
+Simulation complete via $finish(1) at time 22092 NS + 1
+../01_bench/scoreboard.sv:85         $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 12, 2025 at 04:21:27 +07  (total: 00:00:04)
